@@ -6,6 +6,7 @@ import { Projects } from "@/components/Projects";
 import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Footer } from "@/components/Footer";
+import { FlowerChatButton } from "@/components/FlowerChatButton";
 
 export default function Page() {
   return (
@@ -26,6 +27,7 @@ export default function Page() {
         <Skills />
       </main>
       <Footer />
+      <FlowerChatButton />
     </>
   );
 }
