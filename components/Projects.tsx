@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, MoveHorizontal, Lock } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { projects, type Project } from "@/data/portfolio";
 
@@ -13,7 +12,7 @@ function ProjectCard({ project }: { project: Project }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5 }}
-      className="group relative aspect-square w-[210px] sm:w-[260px] lg:w-[300px] shrink-0 snap-start overflow-hidden rounded-3xl border border-deeppurple/15 bg-gradient-to-br from-lavender/50 via-powder/50 to-pinkpurple/30 shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300"
+      className="group relative aspect-square w-full overflow-hidden rounded-3xl border border-deeppurple/15 bg-gradient-to-br from-lavender/50 via-powder/50 to-pinkpurple/30 shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300"
     >
       <img
         src={project.image}
@@ -68,72 +67,8 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export function Projects() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  // Desktop: vertical wheel -> horizontal scroll. Drag-to-scroll + native swipe.
-  const onWheel = useCallback((e: React.WheelEvent) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const canScrollX = el.scrollWidth > el.clientWidth + 4;
-    if (!canScrollX) return;
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      const atStart = el.scrollLeft <= 0;
-      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
-      if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
-        e.preventDefault();
-        el.scrollBy({ left: e.deltaY, behavior: "auto" });
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    let down = false;
-    let moved = false;
-    let startX = 0;
-    let startLeft = 0;
-    const onDown = (e: PointerEvent) => {
-      if (e.pointerType === "mouse") {
-        down = true;
-        moved = false;
-        startX = e.clientX;
-        startLeft = el.scrollLeft;
-        el.setPointerCapture?.(e.pointerId);
-        el.style.cursor = "grabbing";
-      }
-    };
-    const onMove = (e: PointerEvent) => {
-      if (!down) return;
-      if (Math.abs(e.clientX - startX) > 6) moved = true;
-      el.scrollLeft = startLeft - (e.clientX - startX);
-    };
-    const onUp = () => {
-      down = false;
-      if (el) el.style.cursor = "";
-      // A real drag must not activate the link under the cursor on release.
-      if (moved) {
-        moved = false;
-        const suppress = (ev: Event) => {
-          ev.preventDefault();
-          ev.stopPropagation();
-        };
-        el.addEventListener("click", suppress, true);
-        setTimeout(() => el.removeEventListener("click", suppress, true), 50);
-      }
-    };
-    el.addEventListener("pointerdown", onDown);
-    window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerup", onUp);
-    return () => {
-      el.removeEventListener("pointerdown", onDown);
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-    };
-  }, []);
-
   return (
-    <section id="projects" className="py-20 sm:py-28 scroll-mt-20 overflow-hidden">
+    <section id="projects" className="py-20 sm:py-28 scroll-mt-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Selected projects"
@@ -142,27 +77,13 @@ export function Projects() {
               Work with <span className="text-transparent bg-clip-text bg-gradient-to-r from-deeppurple to-pinkpurple">heart.</span>
             </>
           }
-          description="A compact showcase — scroll, drag, or swipe sideways."
+          description="A compact 2×2 showcase."
         />
-        <p className="mt-4 inline-flex items-center gap-2 text-[13px] text-[#6d6484] dark:text-[#a99acb]">
-          <MoveHorizontal size={14} className="text-pinkpurple" />
-          Scroll sideways to explore
-        </p>
-      </div>
 
-      <div className="mt-8">
-        <div
-          ref={trackRef}
-          onWheel={onWheel}
-          tabIndex={0}
-          role="region"
-          aria-label="Projects — horizontally scrollable showcase"
-          className="scroll-mask-x-from-90% no-scrollbar flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory px-5 sm:px-8 lg:px-[max(2rem,calc((100vw-72rem)/2+2rem))] pb-4 pt-1 cursor-grab select-none"
-        >
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
-          <div className="shrink-0 w-2" aria-hidden />
         </div>
       </div>
     </section>
