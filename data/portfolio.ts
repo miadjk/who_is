@@ -117,7 +117,7 @@ export const skills = [
   "MySQL",
 ];
 
-export const lifeImages = Array.from({ length: 10 }, (_, i) => ({
+export const lifeImages = Array.from({ length: 7 }, (_, i) => ({
   src: `/images/life/life-${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `Life outside code — photo ${i + 1} of 10`,
+  alt: `Life outside code — photo ${i + 1} of 7`,
 }));

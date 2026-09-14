@@ -63,7 +63,7 @@ export function LifeOutsideCode() {
               alt={current.alt}
               loading="lazy"
               draggable={false}
-              className="animate-flip-in-x absolute inset-0 h-full w-full object-cover"
+              className="animate-flip-in-x absolute inset-0 h-full w-full object-contain"
             />
           </button>
 
