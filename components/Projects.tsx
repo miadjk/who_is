@@ -14,14 +14,16 @@ function ProjectCard({ project }: { project: Project }) {
       transition={{ duration: 0.5 }}
       className="group relative aspect-square w-full overflow-hidden rounded-3xl border border-deeppurple/15 bg-gradient-to-br from-lavender/50 via-powder/50 to-pinkpurple/30 shadow-sm hover:shadow-soft hover:-translate-y-1 transition-all duration-300"
     >
-      <img
-        src={project.image}
-        alt={`${project.name} — ${project.title}`}
-        loading="lazy"
-        draggable={false}
-        className="absolute inset-0 h-full w-full object-cover aspect-square transition-transform duration-500 group-hover:scale-[1.06]"
-        onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
-      />
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden p-8 sm:p-10">
+        <img
+          src={project.image}
+          alt={`${project.name} — ${project.title}`}
+          loading="lazy"
+          draggable={false}
+          className="max-h-[68%] w-auto max-w-[80%] object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+          onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
+        />
+      </div>
 
       {/* top badges */}
       <span className="absolute top-2.5 left-2.5 rounded-full bg-black/50 px-2.5 py-1 font-heading text-[13px] text-white backdrop-blur">
