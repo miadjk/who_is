@@ -35,6 +35,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* offset anchor jumps so the fixed 68px header never covers a section heading */
+  scroll-padding-top: 80px;
 }
 
 body {

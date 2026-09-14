@@ -22,7 +22,7 @@ export function Hero() {
     toastTimer.current = setTimeout(() => setCvToast(false), 1800);
   };
   return (
-    <section id="home" className="relative overflow-hidden pt-[110px] pb-14 sm:pt-[140px] sm:pb-20">
+    <section id="home" className="relative overflow-hidden pt-[110px] pb-14 sm:pt-[140px] sm:pb-20 scroll-mt-20">
       {/* decorative background */}
       <div className="absolute inset-0 -z-10 pointer-events-none" aria-hidden>
         <div className="absolute inset-0 dot-grid opacity-70 [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent)]" />
