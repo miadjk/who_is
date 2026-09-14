@@ -146,13 +146,16 @@ on conflict (name) do nothing;
 insert into projects (slug, number, name, title, category, description, tags, accent, year, image_url, project_url, sort_order) values
   ('sram', '01', 'SRAM', 'School Report Assignment, Submission & Monitoring', 'School Reports PWA',
    'School heads assign and review. Teachers upload files, submit, and revise when unlocked — on Android, iOS, tablet, and laptop.',
-   array['Supabase', 'PWA', 'Reports'], '#8866DE', '2025', '/images/projects/sram.png', null, 1),
+   array['Supabase', 'PWA', 'Reports'], '#8866DE', '2026', '/images/projects/sram.png', null, 1),
   ('itag-prop', '02', 'iTAG-PROP', 'Inventory Tracking & Property Management', 'Inventory Tracking',
    'Encode school properties, generate QR labels and Excel files, then assign and transfer while keeping every custodian on record.',
-   array['QR', 'Inventory', 'PWA'], '#DD68E3', '2025', '/images/projects/itag.png', null, 2),
+   array['QR', 'Inventory', 'PWA'], '#DD68E3', '2026', '/images/projects/itag.png', null, 2),
   ('dsr-hub', '03', 'DSR HUB', 'Supporting Student Mental Health', 'Stress Relief & Wellness Hub',
    'A safe space for students to find resources, support, and tools to manage stress and improve mental well-being.',
-   array['Wellness', 'Students', 'Web App'], '#7aa8ff', '2025', '/images/projects/dorsurhub.png', 'https://dorsusrhub.unaux.com/index', 3)
+   array['Wellness', 'Students', 'Web App'], '#7aa8ff', '2025', '/images/projects/dorsurhub.png', 'https://dorsusrhub.unaux.com/index', 3),
+  ('rental', '04', 'Rental', 'Rental Management Prototype', 'Rental Business Prototype',
+   'A prototype for rental business owners to manage units, tenants, and payments — built to streamline daily rental operations.',
+   array['Rental', 'Prototype', 'Management'], '#58B09C', '2026', '/images/projects/rental.jpg', null, 4)
 on conflict (slug) do update set
   number = excluded.number, name = excluded.name, title = excluded.title,
   category = excluded.category, description = excluded.description, tags = excluded.tags,

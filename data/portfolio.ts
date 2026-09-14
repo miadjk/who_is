@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "School heads assign and review. Teachers upload files, submit, and revise when unlocked — on Android, iOS, tablet, and laptop.",
     tags: ["Supabase", "PWA", "Reports"],
     accent: "#8866DE",
-    year: "2025",
+    year: "2026",
     image: "/images/projects/sram.png",
   },
   {
@@ -53,7 +53,7 @@ export const projects: Project[] = [
       "Encode school properties, generate QR labels and Excel files, then assign and transfer while keeping every custodian on record.",
     tags: ["QR", "Inventory", "PWA"],
     accent: "#DD68E3",
-    year: "2025",
+    year: "2026",
     image: "/images/projects/itag.png",
   },
   {
@@ -69,6 +69,19 @@ export const projects: Project[] = [
     year: "2025",
     image: "/images/projects/dorsurhub.png",
     url: "https://dorsusrhub.unaux.com/index",
+  },
+  {
+    id: "rental",
+    number: "04",
+    name: "Rental",
+    title: "Rental Management Prototype",
+    category: "Rental Business Prototype",
+    description:
+      "A prototype for rental business owners to manage units, tenants, and payments — built to streamline daily rental operations.",
+    tags: ["Rental", "Prototype", "Management"],
+    accent: "#58B09C",
+    year: "2026",
+    image: "/images/projects/rental.jpg",
   },
 ];
 
