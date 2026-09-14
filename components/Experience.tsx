@@ -77,7 +77,7 @@ export function Experience() {
           title={
             <>
               Growing,
-              <br />
+              <br className="hidden sm:block" />
               project by project.
             </>
           }

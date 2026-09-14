@@ -81,7 +81,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <button
-            className="md:hidden h-9 w-9 grid place-items-center rounded-full border border-deeppurple/25"
+            className="md:hidden h-10 w-10 grid place-items-center rounded-full border border-deeppurple/25"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}

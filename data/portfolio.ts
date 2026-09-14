@@ -21,8 +21,8 @@ export interface ExperienceItem {
 }
 
 export const contact = {
-  email: "atibagos.camille10@gmail.com",
-  emailHref: "mailto:atibagos.camille10@gmail.com",
+  email: "chotaruixdd@gmail.com",
+  emailHref: "mailto:chotaruixdd@gmail.com",
   facebook: "https://www.facebook.com/caracho.violet0000",
   facebookLabel: "Facebook",
   indeed: "https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage",

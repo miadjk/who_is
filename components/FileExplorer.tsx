@@ -135,8 +135,8 @@ export function FileExplorer() {
       </div>
 
       <div className="grid md:grid-cols-[220px_1fr]">
-        <div className="border-b md:border-b-0 md:border-r border-deeppurple/10 p-3 bg-[#FAF8FF]/60 dark:bg-black/20">
-          <div className="flex md:flex-col gap-1.5 overflow-x-auto" role="tablist" aria-label="About files">
+        <div className="border-b md:border-b-0 md:border-r border-deeppurple/10 p-3 bg-[#FAF8FF]/60 dark:bg-black/20 min-w-0">
+          <div className="no-scrollbar flex md:flex-col gap-1.5 overflow-x-auto" role="tablist" aria-label="About files">
             {files.map((f) => {
               const selected = f.id === active;
               return (
@@ -145,7 +145,7 @@ export function FileExplorer() {
                   role="tab"
                   aria-selected={selected}
                   onClick={() => setActive(f.id)}
-                  className={`flex items-center gap-2.5 whitespace-nowrap rounded-xl px-3.5 py-2.5 text-[14px] transition-all duration-200 border ${
+                  className={`flex shrink-0 items-center gap-2.5 whitespace-nowrap rounded-xl px-3.5 py-2.5 text-[14px] transition-all duration-200 border ${
                     selected
                       ? "bg-lavender/50 dark:bg-deeppurple/30 border-deeppurple/25 font-semibold text-[#2a1e4d] dark:text-white shadow-sm"
                       : "border-transparent hover:bg-lavender/25 dark:hover:bg-white/5 text-[#4a4160] dark:text-[#c9bede]"
@@ -163,7 +163,7 @@ export function FileExplorer() {
           </p>
         </div>
 
-        <div className="p-6 sm:p-8 min-h-[280px]">
+        <div className="p-4 sm:p-8 min-h-[280px] min-w-0 break-words">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -171,6 +171,7 @@ export function FileExplorer() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
+              className="min-w-0"
             >
               <Content id={active} />
             </motion.div>

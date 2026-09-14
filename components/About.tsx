@@ -13,7 +13,7 @@ export function About() {
           eyebrow="About me"
           title={
             <>
-              A developer with a<br />
+              A developer with a<br className="hidden sm:block" />
               designer&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-deeppurple to-pinkpurple">eye.</span>
             </>
           }

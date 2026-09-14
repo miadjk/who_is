@@ -44,14 +44,10 @@ export function Hero() {
           </motion.p>
 
           <p className="mt-6 text-[15px] tracking-[0.18em] uppercase text-[#6d6484] dark:text-[#b9abd8]">
-            Hi, I&apos;m
+            Hi, I&apos;m Cho — call me Cho.
           </p>
           <h1 className="font-heading leading-[0.95] mt-2 text-[clamp(2.6rem,7vw,5.2rem)] text-[#1d1530] dark:text-white">
-            CAMILLE
-            <br />
-            <span className="bg-gradient-to-r from-deeppurple via-pinkpurple to-deeppurple bg-clip-text text-transparent">
-              B. ATIBAGOS
-            </span>
+            CHO
           </h1>
           <p className="mt-4 font-heading text-[clamp(1.05rem,2.4vw,1.5rem)] text-[#3d3454] dark:text-[#e6dcfb]">
             Full-Stack Developer <span className="text-pinkpurple">&</span> UI/UX Designer
@@ -85,7 +81,7 @@ export function Hero() {
             </motion.a>
           </div>
 
-          <div className="mt-8 flex items-center gap-4 text-[13px] text-[#6d6484] dark:text-[#a99acb]">
+          <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] text-[#6d6484] dark:text-[#a99acb]">
             <span className="inline-flex items-center gap-1.5">
               <Sparkles size={14} className="text-pinkpurple" /> Next.js
             </span>
@@ -121,7 +117,7 @@ export function Hero() {
                 TypeScript
               </span>
             </div>
-            <pre className="p-5 sm:p-6 text-[13.5px] sm:text-[14px] leading-[1.7] overflow-x-auto font-mono">
+            <pre className="no-scrollbar p-5 sm:p-6 text-[13.5px] sm:text-[14px] leading-[1.7] overflow-x-auto font-mono">
               <code>
                 <span className="text-pinkpurple">const</span>{" "}
                 <span className="text-deeppurple dark:text-lavender font-semibold">developer</span>{" "}
