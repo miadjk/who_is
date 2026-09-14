@@ -26,7 +26,7 @@ create table if not exists profile (
   id int primary key default 1 check (id = 1),
   full_name text not null default 'Camille B. Atibagos',
   role text not null default 'Full-Stack Developer & UI/UX Designer',
-  email text not null default 'chotaruixdd@gmail.com',
+  email text not null default 'atibagos.camille10@gmail.com',
   facebook_url text not null default 'https://www.facebook.com/caracho.violet0000',
   indeed_url text not null default 'https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage',
   city text not null default 'Mati City',
