@@ -1,9 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 
 export function Hero() {
+  const [cvToast, setCvToast] = useState(false);
+  const [toastKey, setToastKey] = useState(0);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (toastTimer.current) clearTimeout(toastTimer.current);
+    };
+  }, []);
+
+  const handleCvClick = () => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToastKey((k) => k + 1);
+    setCvToast(true);
+    toastTimer.current = setTimeout(() => setCvToast(false), 1800);
+  };
   return (
     <section id="home" className="relative overflow-hidden pt-[110px] pb-14 sm:pt-[140px] sm:pb-20">
       {/* decorative background */}
@@ -75,6 +92,7 @@ export function Hero() {
             <motion.a
               href="/resume.pdf"
               download="Camille-B-Atibagos-Resume.pdf"
+              onClick={handleCvClick}
               whileHover={{ y: -3, scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.22 }}
@@ -164,6 +182,30 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* cute CV download confirmation toast (auto-dismisses, never blocks the download) */}
+      <AnimatePresence>
+        {cvToast && (
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none px-4">
+            <motion.div
+              key={toastKey}
+              role="status"
+              aria-live="polite"
+              initial={{ opacity: 0, y: 14, scale: 0.7 }}
+              animate={{ opacity: 1, y: [14, -4, 0], scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
+              className="flex items-center gap-2.5 rounded-full bg-gradient-to-r from-deeppurple via-pinkpurple to-deeppurple px-5 py-3 text-white text-[14px] font-semibold shadow-glow whitespace-nowrap"
+            >
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-white/25">
+                <Download size={14} />
+              </span>
+              CV downloaded! ♡
+              <Sparkles size={14} className="opacity-90" />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
