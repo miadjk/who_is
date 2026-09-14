@@ -18,6 +18,22 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("Home");
 
+  // Mobile menu: programmatic scroll. The previous anchor-based mobile links
+  // (<a href="#...">) combined with setOpen(false) in the same click tore down
+  // the AnimatePresence subtree containing the clicked link before the browser
+  // could resolve the anchor jump, so taps often scrolled nowhere. Buttons +
+  // scrollIntoView target sections that never unmount, so navigation always lands.
+  const handleMobileNav = (label: string, sectionId: string) => {
+    setActive(label);
+    setOpen(false);
+    requestAnimationFrame(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -102,24 +118,21 @@ export function Navbar() {
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {links.map((l, i) => (
-                <motion.a
+                <motion.button
                   key={l.label}
-                  href={l.href}
+                  type="button"
                   initial={{ x: -12, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => {
-                    setActive(l.label);
-                    setOpen(false);
-                  }}
-                  className={`py-3 px-3 rounded-xl text-[16px] transition-colors ${
+                  onClick={() => handleMobileNav(l.label, l.href.slice(1))}
+                  className={`w-full text-left py-3 px-3 rounded-xl text-[16px] transition-colors ${
                     active === l.label
                       ? "bg-lavender/40 dark:bg-deeppurple/30 text-deeppurple dark:text-lavender font-semibold"
                       : "hover:bg-lavender/25 dark:hover:bg-white/5"
                   }`}
                 >
                   {l.label}
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </motion.div>
