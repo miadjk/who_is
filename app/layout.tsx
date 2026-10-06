@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Camille B. Atibagos — Full-Stack Developer & UI/UX Designer",
+  title: "Camille B. Atibagos — Website Developer & UI/UX Designer",
   description:
     "Personal portfolio of Camille B. Atibagos. I build functional, thoughtful, and user-centered digital experiences — from school systems and research platforms to modern web applications.",
 };

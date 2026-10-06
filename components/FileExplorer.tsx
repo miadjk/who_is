@@ -21,7 +21,7 @@ function Content({ id }: { id: FileId }) {
       <div>
         <h3 className="font-heading text-2xl mb-3"># Hello!</h3>
         <p className="leading-relaxed text-[16px] text-[#4a4160] dark:text-[#d9cdf2]">
-          I&apos;m <strong>Camille B. Atibagos</strong>, a Full-Stack Developer and UI/UX Designer.
+          I&apos;m <strong>Camille B. Atibagos</strong>, a Website Developer and UI/UX Designer.
         </p>
         <p className="mt-3 leading-relaxed text-[16px] text-[#4a4160] dark:text-[#d9cdf2]">
           I enjoy transforming ideas into functional, beautiful, and user-friendly digital

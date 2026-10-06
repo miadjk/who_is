@@ -9,9 +9,9 @@ export function SiteSchema() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Camille B. Atibagos",
-    jobTitle: "Full-Stack Developer & UI/UX Designer",
+    jobTitle: "Website Developer & UI/UX Designer",
     description:
-      "Full-Stack Developer and UI/UX Designer building functional, thoughtful, and user-centered digital experiences — from school systems and research platforms to modern web applications.",
+      "Website Developer and UI/UX Designer building functional, thoughtful, and user-centered digital experiences — from school systems and research platforms to modern web applications.",
     email: contact.email,
     address: {
       "@type": "PostalAddress",

@@ -71,7 +71,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="mt-4 font-heading text-[clamp(1.05rem,2.4vw,1.5rem)] text-[#3d3454] dark:text-[#e6dcfb]">
-            Full-Stack Developer <span className="text-pinkpurple">&</span> UI/UX Designer
+            Website Developer <span className="text-pinkpurple">&</span> UI/UX Designer
           </p>
           <p className="mt-5 max-w-[46ch] text-[16px] sm:text-[17px] leading-relaxed text-[#5b5170] dark:text-[#c9bede]">
             I build functional, thoughtful, and user-centered digital experiences — from school
@@ -144,7 +144,7 @@ export function Hero() {
                 {"  "}name: <span className="text-[#2e7d4f] dark:text-[#9be3b8]">&quot;Camille&quot;</span>,
                 {"\n"}
                 {"  "}role:{" "}
-                <span className="text-[#2e7d4f] dark:text-[#9be3b8]">&quot;Full-Stack Developer&quot;</span>,
+                <span className="text-[#2e7d4f] dark:text-[#9be3b8]">&quot;Website Developer&quot;</span>,
                 {"\n"}
                 {"  "}design:{" "}
                 <span className="text-[#2e7d4f] dark:text-[#9be3b8]">&quot;UI/UX Designer&quot;</span>,
